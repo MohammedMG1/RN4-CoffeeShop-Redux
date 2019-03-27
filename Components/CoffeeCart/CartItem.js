@@ -4,6 +4,9 @@ import React, { Component } from "react";
 import { Text, Left, Body, Right, Button, ListItem, Icon } from "native-base";
 
 class CartItem extends Component {
+  handlePress = () => {
+    this.props.removeItemFromCart(this.props.item);
+  };
   render() {
     const { item } = this.props;
     return (
@@ -18,7 +21,7 @@ class CartItem extends Component {
           <Text style={{ color: "white" }}>{item.quantity}</Text>
         </Body>
         <Right>
-          <Button transparent>
+          <Button transparent onPress={this.handlePress}>
             <Icon name="trash" style={{ color: "white", fontSize: 21 }} />
           </Button>
         </Right>
